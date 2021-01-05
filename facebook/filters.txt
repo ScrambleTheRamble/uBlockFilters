@@ -1,0 +1,8 @@
+! These rules come from https://www.reddit.com/r/uBlockOrigin/wiki/solutions#wiki_facebook and https://www.reddit.com/r/uBlockOrigin/
+! Get rid of suggested posts
+facebook.com##div[role=feed] div:first-child > div:only-child > div:only-child > div:only-child > div:only-child > span:only-child:has-text(/^Suggested/):upward(div[role=feed] > div)
+
+! Remove Ads
+facebook.com##div[role="feed"] div > span > span > a > span:upward(div[role="feed"] > div:not([data-pagelet*="group" i]))
+facebook.com##div[data-pagelet*="FeedUnit"]:has(span[class] + [role*="n"] > span > span + span)
+facebook.com##div[data-pagelet*="FeedUnit"]:has(span[class]:first-child + [role*="n"] > span:only-child > span:first-child + span:last-child)
