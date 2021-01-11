@@ -1,8 +1,7 @@
 ! These rules come from https://www.reddit.com/r/uBlockOrigin/wiki/solutions#wiki_facebook and https://www.reddit.com/r/uBlockOrigin/
-! Get rid of suggested posts
-facebook.com##div[role=feed] div:first-child > div:only-child > div:only-child > div:only-child > div:only-child > span:only-child:has-text(/^Suggested/):upward(div[role=feed] > div)
-
-! Remove Ads
+facebook.com##[role=feed] div > span > span > a > span >:not(:has-text(/^[^A-z]$/)):upward(div[role=feed] > div)
 facebook.com##div[role="feed"] div > span > span > a > span:upward(div[role="feed"] > div:not([data-pagelet*="group" i]))
 facebook.com##div[data-pagelet*="FeedUnit"]:has(span[class] + [role*="n"] > span > span + span)
 facebook.com##div[data-pagelet*="FeedUnit"]:has(span[class]:first-child + [role*="n"] > span:only-child > span:first-child + span:last-child)
+facebook.com##div[data-pagelet*="FeedUnit"]:has(div:not([class]):not([id]):empty ~ div:not([class]):not([id]) > div:not([class]):not([id]) > div:not([class]):not([id]):first-child:has(span[dir="auto"]:only-child) + div:not([class]):not([id]) + div:not([class]):not([id]) + div:not([class]):not([id]):last-child)
+facebook.com##div[data-pagelet*="FeedUnit"]:has(div:not([class]):not([id]):empty ~ div:not([class]):not([id]) > div:not([class]):not([id]) > div:not([class]):not([id]):first-child:has(span[dir="auto"]:only-child):not(:has(> div > div > span > a)) + div:not([class]):not([id]) + div:not([class]):not([id]) + div:not([class]):not([id]):last-child)
